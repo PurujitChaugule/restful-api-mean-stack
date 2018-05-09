@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ -->
+	<title>THE RIGHT DOCTORS ASSIGNMENT</title>
+	<style>
+body {
+    background-image: url("image2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #4CAF50;
+}
+
+#person {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#person td, #person th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#person tr:nth-child(even){background-color: #f2f2f2;}
+
+#person tr:hover {background-color: #ddd;}
+
+#person th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+</head>
+<body>
+<h1>PERSONAL DETAIL FORM</h1>
+<br><br>
+ 	<div class="container" ng-controller="AppCtrl">
+		
+		<table class="table" id="person">
+			<thead>
+				<tr>
+					<th>NAME</th>
+					<th>AGE</th>
+					<th>GENDER</th>
+					<th>NUMBER</th>
+					<th>ACTION</th>
+					<th>&nbsp;</th> 
+					<th>&nbsp;</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td> <input class="form-control" ng-model="contact.name" required=""></td>
+					<td><input class="form-control" ng-model="contact.age" required></td>
+					<td><input class="form-control" ng-model="contact.gender" required></td>
+					<td><input class="form-control" ng-model="contact.number" required></td>
+					<td><button class="btn btn-primary" ng-click="addData()">ADD</button></td>
+					<td><button class="btn btn-info" ng-click="update()">UPDATE</button>&nbsp;&nbsp;</td><td><button class="btn btn-info" ng-click="deselect()">CLEAR</button></td>
+				</tr>
+				<tr ng-repeat="contact in submit">
+					<td>{{contact.name}}</td>
+					<td>{{contact.age}}</td>
+					<td>{{contact.gender}}</td>
+					<td>{{contact.number}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(contact._id)">REMOVE</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(contact._id)">EDIT</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>			
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
